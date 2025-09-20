@@ -7,22 +7,18 @@
     body {
       margin: 0;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background: #111;
       overflow: hidden;
       font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     h1 {
-      position: absolute;
       color: white;
       font-size: 3em;
       text-align: center;
       z-index: 10;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
     }
     .flower {
       position: absolute;
@@ -43,8 +39,7 @@
   </style>
 </head>
 <body>
-  <!-- Solo UNA frase -->
-  <h1>Te aprecio demasiado</h1>
+  <h1 id="mensaje">Te aprecio demasiado</h1>
 
   <script>
     function createFlower(x, y) {
@@ -54,7 +49,6 @@
       flower.style.left = x + "px";
       flower.style.top = y + "px";
 
-      // Ángulo y distancia aleatoria
       const angle = Math.random() * 2 * Math.PI;
       const distance = 80 + Math.random() * 70;
       const dx = Math.cos(angle) * distance;
@@ -64,8 +58,6 @@
       flower.style.setProperty("--y", dy + "px");
 
       document.body.appendChild(flower);
-
-      // Borrar después de 2s
       setTimeout(() => flower.remove(), 2000);
     }
 
