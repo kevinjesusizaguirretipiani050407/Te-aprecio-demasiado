@@ -20,6 +20,9 @@
       font-size: 3em;
       text-align: center;
       z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
     .flower {
       position: absolute;
@@ -52,7 +55,7 @@
 
       // Ángulo y distancia aleatoria
       const angle = Math.random() * 2 * Math.PI;
-      const distance = 100 + Math.random() * 80;
+      const distance = 80 + Math.random() * 70;
       const dx = Math.cos(angle) * distance;
       const dy = Math.sin(angle) * distance;
 
@@ -66,10 +69,11 @@
     }
 
     function explode(e) {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
+      const x = e.clientX || (e.touches && e.touches[0].clientX);
+      const y = e.clientY || (e.touches && e.touches[0].clientY);
+
       for (let i = 0; i < 15; i++) {
-        createFlower(centerX, centerY);
+        createFlower(x, y);
       }
     }
 
